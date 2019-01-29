@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EUSC AGM -- {{.Position}}</title>
+		<style>
+div {
+	max-width: 400px;
+	min-width: 100px;
+}
+		</style>
+	</head>
+	<body>
+
+		<center>
+
+			<!-- [START html_template] --> 
+			<h1>{{.Position}}</h1>
+			<form action="/vote/", method="post">
+				<input type="hidden" name="election_key" value="{{.Key}}" />
+				{{with .Candidates}}
+				{{range .}}
+				<input type="radio", name="candidate_key", id="candidate_key", value="{{.Key}}"><font size="6"> -- {{.Name}}</font> 
+				<br>
+				<div>{{.Message}}</div>
+				{{end}}
+				<br>
+				<h2>Anonomous Identity: </h2><input type="password" name="voter_id" maxlength="100"><br>
+				<input type="submit" style="width: 134px; margin: 4px auto 4px auto;">
+				{{end}}
+			</form>
+			<!-- [END html_template] -->
+		</center>
+	</body>
+</html>

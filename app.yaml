@@ -1,0 +1,11 @@
+runtime: go
+api_version: go1
+
+env_variables:
+  GCLOUD_DATASET_ID: eusc-agm-vote
+
+handlers:
+
+# All URLs are handled by the Go application script
+- url: /.*
+  script: _go_app
