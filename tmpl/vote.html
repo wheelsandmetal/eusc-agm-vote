@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+	<link href="/static/style.css" rel="stylesheet">
+
 	<head>
 		<title>EUSC AGM -- {{.Position}}</title>
 		<style>
@@ -19,13 +21,13 @@ div {
 				<input type="hidden" name="election_key" value="{{.Key}}" />
 				{{with .Candidates}}
 				{{range .}}
-				<input type="radio", name="candidate_key", id="candidate_key", value="{{.Key}}"><font size="6"> -- {{.Name}}</font> 
+				<input type="radio", name="candidate_key", id="candidate_key", value="{{.Key}}"><font size="6"> -- {{.Name}}</font>
 				<br>
 				<div>{{.Message}}</div>
 				{{end}}
 				<br>
-				<h2>Anonomous Identity: </h2><input type="password" name="voter_id" maxlength="100"><br>
-				<input type="submit" style="width: 134px; margin: 4px auto 4px auto;">
+				<h1>Anonymous Identity: </h1><input type="password" name="voter_id" maxlength="100">
+				<input type="submit"  class="btn blue">
 				{{end}}
 			</form>
 			<!-- [END html_template] -->

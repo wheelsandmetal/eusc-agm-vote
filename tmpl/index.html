@@ -3,16 +3,18 @@
 	<head>
 		<title>EUSC AGM</title>
 	</head>
+	<link href="/static/style.css" rel="stylesheet">
 	<body>
 
+		<h1>Welcome to the<br><span>EUSC<br>AGM</span><br> Please have your unique ID ready</h1>
 		<center>
-			<!-- [START html_template] --> 
+			<!-- [START html_template] -->
 			{{with .Elections}}
 			{{range .}}
-			<h1><a href="/election/{{.Key}}/">{{.Position}}</a></h1>
+			<a href="/election/{{.Key}}/" class="btn green">{{.Position}}</a>
 			{{end}}
 			{{end}}
 			<!-- [END html_template] -->
-		</center>
+		</center> 
 	</body>
 </html>
