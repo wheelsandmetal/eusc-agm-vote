@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>EUSC AGM</title>
-</head>
-<body>
+	<head>
+		<title>EUSC AGM</title>
+	</head>
+	<body>
 
-<center>
-<!-- [START html_template] --> 
-{{with .Elections}}
-{{range .}}
-<h1><a href="/election/{{.Key}}/">{{.Position}}</a></h1>
-{{end}}
-{{end}}
-<!-- [END html_template] -->
-</center>
-</body>
+		<center>
+			<!-- [START html_template] --> 
+			{{with .Elections}}
+			{{range .}}
+			<h1><a href="/election/{{.Key}}/">{{.Position}}</a></h1>
+			{{end}}
+			{{end}}
+			<!-- [END html_template] -->
+		</center>
+	</body>
 </html>
