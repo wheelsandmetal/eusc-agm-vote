@@ -1,0 +1,29 @@
+wrap {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-right: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type=password] {
+  outline: none;
+  border: none;
+  padding: 20px;
+  font-size: 24px;
+  box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.7);
+  transition: transform 0.5s cubic-bezier(0.67, -0.33, 0.62, 1.35), box-shadow 0.4s ease;
+}
+
+input[type=password]:focus {
+  box-shadow: 0px 30px 1em -25px rgba(0, 0, 0, 0.4);
+  transform: scale(1.5, 1.5);
+}
+
+input[type=password]::-webkit-input-placeholder {
+  transition: color 0.4s ease;
+}
+
+input[type=password]:focus::-webkit-input-placeholder {
+  color: transparent;
+}

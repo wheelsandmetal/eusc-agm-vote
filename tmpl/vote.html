@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<link href="/static/style.css" rel="stylesheet">
+	<link href="/static/input.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("input[type=password]").on('focus', function() {
+				$("body").css('background', '#006064');
+			});
+
+			$("input[type=password]").on('focusout', function() {
+				$("body").css('background', '#9CB8B3');
+			});
+		});
+	</script>
 
 	<head>
 		<title>EUSC AGM -- {{.Position}}</title>
-		<style>
-div {
-	max-width: 400px;
-	min-width: 100px;
-}
-		</style>
 	</head>
 	<body>
 
@@ -21,12 +28,19 @@ div {
 				<input type="hidden" name="election_key" value="{{.Key}}" />
 				{{with .Candidates}}
 				{{range .}}
-				<input type="radio", name="candidate_key", id="candidate_key", value="{{.Key}}"><font size="6"> -- {{.Name}}</font>
-				<br>
-				<div>{{.Message}}</div>
+				<div>
+					<label>
+						<input type="radio", class="option-input radio" name="candidate_key", id="candidate_key", value="{{.Key}}"/>
+						{{.Name}}
+					</label>
+				</div>
+				<p>{{.Message}}</p>
 				{{end}}
 				<br>
-				<h1>Anonymous Identity: </h1><input type="password" name="voter_id" maxlength="100">
+				<div class="wrap">
+					<input type="password" name="voter_id" placeholder="Your ID">
+				</div>
+				<br>
 				<input type="submit"  class="btn blue">
 				{{end}}
 			</form>

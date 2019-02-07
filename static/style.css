@@ -1,104 +1,228 @@
 /*Background Colour*/ 
-body { background: #9cb8b3; }
+body { 
+	background: #9cb8b3;
+	transition: background 0.9s ease;
+}
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400, 300, 600, 700);
 
 html {
-  font-family: "Open Sans", sans-serif;
+	font-family: "Open Sans", sans-serif;
 }
 
 h1 {
-  color: #444;
+	color: #444;
 }
 
 /*Button Base*/
 
- .btn {
-    padding: 1em 2.1em 1.1em;
-    border-radius: 3px;
-    margin: 8px 8px 8px 8px;
-    color: #fbdedb;
-    background-color: #fbdedb;
-    display: inline-block;
-    background: #e74c3c;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
-    font-family: sans-serif;
-    font-weight: 800;
-    font-size: .85em;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: none;
-    -webkit-box-shadow: 0em -0.3rem 0em rgba(0, 0, 0, 0.1) inset;
-    -moz-box-shadow: 0em -0.3rem 0em rgba(0, 0, 0, 0.1) inset;
-    box-shadow: 0em -0.3rem 0em rgba(0, 0, 0, 0.1) inset;
-    position: relative;
+.btn {
+	padding: 1em 2.1em 1.1em;
+	border-radius: 3px;
+	margin: 8px 8px 8px 8px;
+	color: #fbdedb;
+	background-color: #fbdedb;
+	display: inline-block;
+	background: #e74c3c;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+	font-family: sans-serif;
+	font-weight: 800;
+	font-size: .85em;
+	text-transform: uppercase;
+	text-align: center;
+	text-decoration: none;
+	-webkit-box-shadow: 0em -0.3rem 0em rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0em -0.3rem 0em rgba(0, 0, 0, 0.1) inset;
+	box-shadow: 0em -0.3rem 0em rgba(0, 0, 0, 0.1) inset;
+	position: relative;
 }
 .btn:hover, .btn:focus {
-    opacity: 0.8;
+	opacity: 0.8;
 }
 .btn:active {
-    -webkit-transform: scale(0.80);
-    -moz-transform: scale(0.80);
-    -ms-transform: scale(0.80);
-    -o-transform: scale(0.80);
-    transform: scale(0.80);
+	-webkit-transform: scale(0.80);
+	-moz-transform: scale(0.80);
+	-ms-transform: scale(0.80);
+	-o-transform: scale(0.80);
+	transform: scale(0.80);
 }
 .btn.block {
-    display: block !important;
+	display: block !important;
 }
 .btn.circular {
-  border-radius: 50em !important;
+	border-radius: 50em !important;
 }
 
 
 /* Colours can be added and buttons modified as below. The use of this would be class ="btn blue"*/
 .green {
-    background-color: #5bbd72;
+	background-color: #5bbd72;
 }
 .blue{
 	background-color: #0977D8;
+	border: none;
+	padding: 20px;
+	font-size: 24px;
 	font-weight: 150;
-	padding: 0.15em 0.6em 0.15em;
+	box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.7);
 }
 
 /*Heading Text */
 h1 {
-    font: 600 1.5em/1 'Raleway', sans-serif;
-    color: rgba(0,0,0,.5);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: .5em;
-    position: relative;
-    top: 0%;
-    width: 100%;
+	font: 600 1.5em/1 'Raleway', sans-serif;
+	color: rgba(0,0,0,.5);
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: .5em;
+	position: relative;
+	top: 0%;
+	width: 100%;
 }
 /* Code bastartized from a differnt project for EUSC AGM Text. Some is redundant but I can't be bothered to try and work out which without breaking everything */
 span, span:after {
-    font-weight: 900;
-    color: #efedce;
-    white-space: nowrap;
-    display: inline-block;
-    position: relative;
-    letter-spacing: .1em;
-    padding: .2em 0 .25em 0;
+	font-weight: 900;
+	color: #efedce;
+	white-space: nowrap;
+	display: inline-block;
+	position: relative;
+	letter-spacing: .1em;
+	padding: .2em 0 .25em 0;
 }
 
 span {
-    font-size: 4em;
-    z-index: 100;
-    text-shadow: .04em .04em 0 #9cb8b3;
+	font-size: 4em;
+	z-index: 100;
+	text-shadow: .04em .04em 0 #9cb8b3;
 }
 
 span:after {
-    content: attr(data-shadow-text);
-    color: rgba(0,0,0,.35);
-    text-shadow: none;
-    position: absolute;
-    left: .0875em;
-    top: .0875em;
-    z-index: -1;
-    -webkit-mask-image: url(//f.cl.ly/items/1t1C0W3y040g1J172r3h/mask.png);
+	content: attr(data-shadow-text);
+	color: rgba(0,0,0,.35);
+	text-shadow: none;
+	position: absolute;
+	left: .0875em;
+	top: .0875em;
+	z-index: -1;
+	-webkit-mask-image: url(//f.cl.ly/items/1t1C0W3y040g1J172r3h/mask.png);
+}
+
+@keyframes click-wave {
+	0% {
+		height: 40px;
+		width: 40px;
+		opacity: 0.35;
+		position: relative;
+	}
+	100% {
+		height: 200px;
+		width: 200px;
+		margin-left: -80px;
+		margin-top: -80px;
+		opacity: 0;
+	}
+}
+
+.option-input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	position: relative;
+	top: 13.33333px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 40px;
+	width: 40px;
+	transition: all 0.15s ease-out 0s;
+	background: #cbd1d8;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	margin-right: 0.5rem;
+	outline: none;
+	position: relative;
+	z-index: 1000;
+}
+.option-input:hover {
+	background: #9faab7;
+}
+.option-input:checked {
+	background: #40e0d0;
+}
+.option-input:checked::before {
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	content: 'X';
+	display: inline-block;
+	font-size: 26.66667px;
+	text-align: center;
+	line-height: 40px;
+}
+.option-input:checked::after {
+	-webkit-animation: click-wave 0.65s;
+	-moz-animation: click-wave 0.65s;
+	animation: click-wave 0.65s;
+	background: #40e0d0;
+	content: '';
+	display: block;
+	position: relative;
+	z-index: 100;
+}
+.option-input.radio {
+	border-radius: 50%;
+}
+.option-input.radio::after {
+	border-radius: 50%;
+}
+
+
+body div {
+	padding: 1rem;
+}
+
+body label {
+	display: block;
+	line-height: 40px;
+}
+
+
+.btn {
+	font-size: 2em;
+}
+h1 {
+	margin : 0 auto;
+	font-size : 2.5vw;
+}
+p {
+	margin : 0 auto;
+	font-size : 1vw;
+}
+label {
+	margin : 0 auto;
+	font-size : 2vw;
+}
+
+@media (max-width: 1024px) {
+	.btn {
+		font-size: 3em;
+	}
+	h1 {
+		margin : 0 auto;
+		font-size : 7.5vw;
+	}
+	p {
+		margin : 0 auto;
+		font-size : 3vw;
+	}
+	label {
+		margin : 0 auto;
+		font-size : 5vw;
+	}
 }
