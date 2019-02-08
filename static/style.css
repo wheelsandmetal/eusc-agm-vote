@@ -1,7 +1,6 @@
 /*Background Colour*/ 
 body { 
 	background: #9cb8b3;
-	transition: background 0.9s ease;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400, 300, 600, 700);

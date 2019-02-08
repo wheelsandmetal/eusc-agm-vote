@@ -1,3 +1,8 @@
+/* Make the transition between colours a slow ease */
+body { 
+	transition: background 0.9s ease;
+}
+
 wrap {
   position: relative;
   top: 50%;
