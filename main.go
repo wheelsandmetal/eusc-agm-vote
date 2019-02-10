@@ -26,7 +26,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	ctx := appengine.NewContext(r)
-	q := datastore.NewQuery("Election")
+	q := datastore.NewQuery("Election").Order("Order")
 
 	var elections []Election
 	var election Election
@@ -194,6 +194,7 @@ type Election struct {
 	Candidates_Keys []*datastore.Key
 	Candidates []Candidate
 	Active bool
+	Order int
 }
 
 type templateParams struct {
