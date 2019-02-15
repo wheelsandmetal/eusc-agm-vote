@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 	"html/template"
 	"net/http"
@@ -72,22 +73,17 @@ func electionHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if len(election.Candidates_Keys) >= 1 {
-		var candidates []Candidate
+		var candidates = make([]Candidate, len(election.Candidates_Keys))
 
-		for _, key := range election.Candidates_Keys {
-			var candidate Candidate
-			q := datastore.NewQuery("Candidate").
-				Filter("__key__ =", key)
+		err = datastore.GetMulti(ctx, election.Candidates_Keys, candidates)
 
-			it := q.Run(ctx)
-			_, err := it.Next(&candidate)
-			if err != nil {
-				message := "Candidate with key not found"
-				errorHandler(w, r, http.StatusNotFound, message, err)
-				return
-			}
-			candidates = append(candidates, candidate)
+		if err != nil {
+			message := "No Candidates Found."
+			errorHandler(w, r, http.StatusNotFound, message, err)
+			return
 		}
+		sort.Slice(candidates, func(i, j int) bool { return candidates[i].Key < candidates[j].Key } )
+
 		election.Candidates = candidates
 		t, _ := template.ParseFiles("tmpl/vote.html")
 		t.Execute(w, election)
