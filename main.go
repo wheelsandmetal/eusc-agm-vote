@@ -132,6 +132,14 @@ func voteHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Check if voter voted for someone
+	var candidate_key = r.Form.Get("candidate_key")
+	if candidate_key == "" {
+		message := fmt.Sprintf("You have to vote for someone!")
+		errorHandler(w, r, http.StatusBadRequest, message, nil)
+		return
+	}
+
 	// Check if voter has voted before
 	q = datastore.NewQuery("Vote").
 		Filter("Voter_ID =", voter.Voter_ID).
@@ -142,7 +150,7 @@ func voteHandler(w http.ResponseWriter, r *http.Request) {
 	key, err := it.Next(&vote)
 	if err == nil {
 		// Overwrite vote
-		vote.Candidate_Key = r.Form.Get("candidate_key")
+		vote.Candidate_Key = candidate_key
 		if _, err := datastore.Put(ctx, key, &vote); err != nil {
 			message := fmt.Sprintf("Unable to put vote in DataStore")
 			log.Errorf(ctx, "datastore.Put: %v", err)
@@ -154,7 +162,7 @@ func voteHandler(w http.ResponseWriter, r *http.Request) {
 		vote = Vote{
 			Voter_ID: voter.Voter_ID,
 			Election_Key: election_key,
-			Candidate_Key: r.Form.Get("candidate_key"),
+			Candidate_Key: candidate_key,
 		}
 		key = datastore.NewIncompleteKey(ctx, "Vote", nil)
 		if _, err := datastore.Put(ctx, key, &vote); err != nil {
