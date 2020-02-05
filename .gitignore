@@ -1,2 +1,4 @@
 index.yaml
 eusc-agm-vote
+/.gcloudignore
+/auth-file.json
